@@ -32,17 +32,13 @@ For personalized recommendations, the Spring Boot backend sends the member's bor
 
 ## 1. Add ML service URL to Spring Boot
 
-Add this line to:
-
-```text
-LibrarySystem/src/main/resources/application.properties
-```
+Set the ML service URL in `LibrarySystem/src/main/resources/application.properties`:
 
 ```properties
 app.mlServiceUrl=http://localhost:8001
 ```
 
-This file already contains local secrets, so it was not changed automatically.
+Security note: database credentials and the JWT signing key are configured via the `DB_URL`, `DB_USERNAME`, `DB_PASSWORD`, and `JWT_SECRET` environment variables. Do not commit real credentials into this file. If credentials were committed in an earlier version, rotate them: removing values from the latest commit does not erase Git history.
 
 ## 2. Start the Python ML service
 
